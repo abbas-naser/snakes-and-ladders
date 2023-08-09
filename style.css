@@ -1,0 +1,381 @@
+:root {
+  /* var(--white) */
+  /* colors */
+  --dark: rgb(34, 40, 49);
+  --meduimDark: rgb(57, 62, 70);
+  --teal: rgb(0, 173, 181);
+  --lightGrey: rgb(238, 238, 238);
+  --playerOneCurrentBlockColor: rgb(242, 102, 171);
+  --playerTwoCurrentBlockColor: rgb(61, 172, 143);
+  /* dimensions */
+  --controlBtnSHeight: 50px;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none; /*make the text not selectable*/
+  color: var(--dark);
+  font-family: "Lato", sans-serif;
+}
+body {
+  background-color: var(--lightGrey);
+  font-family: "Lato", sans-serif;
+  font-size: 12px;
+  text-overflow: ellipsis;
+}
+.outerContainer {
+  max-width: 1100px;
+  /* width: 100vw; */
+  height: 100vh;
+  margin: 0 auto;
+}
+.gameControlContainer {
+  /* margin: 10px auto ; */
+  padding: 20px;
+  margin: auto 10px;
+  width: 100%;
+  /* height: 60px; */
+  /* height: 10vh; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.outputMessage {
+  /* height: 60px; */
+  /* height: 10vh; */
+  background-color: var(--dark);
+  color: var(--teal);
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  font-size: 18px;
+  text-transform: capitalize;
+  margin: auto 10px;
+}
+.playersAndBlockContainer {
+  width: 100%;
+  margin-top: 4px;
+  height: 75vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 300px 550px 300px;
+  justify-content: center;
+  align-items: center;
+}
+.playerContainer {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  border-radius: 20px;
+  text-align: center;
+  height: 270px;
+}
+.playerContainer img {
+  margin: 0;
+}
+.gridSizeOptions {
+  min-width: fit-content;
+  height: var(--controlBtnSHeight);
+  background-color: white;
+  color: var(--dark);
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 10px;
+  text-transform: capitalize;
+  font-size: 14px;
+  border: none;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+.gridSizeOptionsBtn {
+  background-color: var(--lightGrey);
+  min-width: fit-content;
+  color: var(--dark);
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  font-size: 12px;
+}
+.gridSizeOptionsBtn:focus {
+  color: var(--teal);
+}
+.defaultGridSizeBtn {
+  color: var(--teal);
+}
+.controlBtn:hover,
+.gridSizeOptionsBtn:hover {
+  color: var(--teal);
+}
+.controlBtn {
+  min-width: fit-content;
+  height: var(--controlBtnSHeight);
+  background-color: white;
+  color: var(--dark);
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 10px;
+  border: none;
+  text-transform: capitalize;
+}
+.resetBtn {
+  display: none;
+  /* padding: 10px 40px; */
+}
+
+.playerOneContainer h1 {
+  color: var(--playerOneCurrentBlockColor);
+}
+.playerTwoContainer h1 {
+  color: var(--playerTwoCurrentBlockColor);
+}
+.playerContainer h1 {
+  text-transform: capitalize;
+}
+.diceImg {
+  width: 45px;
+  height: 45px;
+  visibility: hidden;
+}
+.rollDiceButton,
+.passBtn {
+  height: var(--controlBtnSHeight);
+  display: inline-block;
+  padding: 0 20px;
+  margin: 10px 4px;
+  border: none;
+  font-size: 14px;
+  border-radius: 10px;
+  text-transform: capitalize;
+  background-color: var(--dark);
+  color: var(--lightGrey);
+}
+.rollDiceButton:hover,
+.passBtn:hover {
+  background-color: var(--meduimDark);
+  color: var(--teal);
+}
+.rollDiceButton:disabled,
+.passBtn:disabled {
+  background-color: var(--lightGrey);
+  color: grey;
+}
+.playerOneContainer > *,
+.playerTwoContainer > * {
+  margin: 10px 0;
+}
+.tries {
+  visibility: hidden;
+}
+.playerMessage {
+  display: block;
+  visibility: hidden;
+  width: 80%;
+  height: 40px;
+  text-align: center;
+  font-size: 14px;
+  margin: auto auto;
+}
+.playerMessage::first-letter {
+  text-transform: capitalize;
+}
+.blocksContainer {
+  justify-self: center;
+  align-self: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 5px;
+  padding: 5px;
+}
+.block {
+  animation: animateBlock 1s 4 linear;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 5px;
+  background-color: white;
+  color: var(--dark);
+}
+/* players positioning */
+.playerOneCurrentBlock {
+  background: var(--playerOneCurrentBlockColor);
+}
+.playerTwoCurrentBlock {
+  background: var(--playerTwoCurrentBlockColor);
+}
+.blockBothPlayerCurrentlyOn {
+  background: linear-gradient(
+    to top right,
+    var(--playerOneCurrentBlockColor),
+    var(--playerTwoCurrentBlockColor)
+  );
+}
+.ladderBlock {
+  position: absolute;
+  border-radius: 5px;
+  width: 40%;
+  height: 60%;
+}
+.snakeBlock {
+  position: absolute;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+}
+.playerOnePreviousBlockIndicator {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 10px;
+  border: 0.5px solid white;
+  background-color: var(--playerOneCurrentBlockColor);
+}
+.playerTwoPreviousBlockIndicator {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 10px;
+  border: 0.5px solid white;
+  background-color: var(--playerTwoCurrentBlockColor);
+}
+/* amimations */
+.animateDice {
+  animation-name: rotate;
+  animation-duration: 0.3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.animateBlock {
+  animation-name: scaleUp;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+}
+.animateLaddersBlock {
+  animation-name: bounce;
+  animation-duration: 0.6s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+}
+.animateSnakesBlocks {
+  animation-name: snake;
+  animation-duration: 0.6s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+}
+.animateOutputMessage {
+  animation-name: ScaleOutputMessage;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+.animateSnakeAndLadderImages {
+  animation-name: scaleUp;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+}
+.animatePlayerContainer {
+  animation-name: ScaleOutputMessage;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+}
+.animatePlayerMessage {
+  animation-name: ScaleOutputMessage;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+}
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.6);
+  }
+  25% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes ScaleOutputMessage {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes bounce {
+  0% {
+    transform: scale(1.2);
+  }
+  20% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(0.6);
+  }
+  60% {
+    transform: scale(0.8);
+  }
+  80% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes snake {
+  0% {
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(-0.5, 1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/*  */

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- NORMALIZE -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Snakes and Ladders</title>
+    <link rel="icon" type="image/x-icon" href="./images/snake.png" />
+  </head>
+  <body>
+    <div id="outerContainer" class="outerContainer">
+      <!-- game controls - start reset gridSize -->
+      <div class="gameControlContainer">
+        <div id="gridSizeOptions" class="gridSizeOptions">
+          <p>Grid Size</p>
+          <button id="gridSize4" class="gridSizeOptionsBtn">4 x 4</button>
+          <button id="gridSize6" class="gridSizeOptionsBtn defaultGridSizeBtn">
+            6 x 6
+          </button>
+          <button id="gridSize8" class="gridSizeOptionsBtn">8 x 8</button>
+        </div>
+        <button
+          id="playAgainstMachineBtn"
+          class="controlBtn playAgainstMachineBtn"
+        >
+          Play Against A machine
+        </button>
+        <button id="resetBtn" class="controlBtn resetBtn">Reset</button>
+        <button id="playAgainstHumanBtn" class="controlBtn playAgainstHumanBtn">
+          Play Against A Human
+        </button>
+        <button id="countinueBtn" class="controlBtn countinueBtn">
+          continue
+        </button>
+      </div>
+      <div id="outputMessage" class="outputMessage">
+        Choose a grid size and play, you have 3 rounds. player to start will be
+        chosen randomly
+        <!-- winner is player 1 after 20 tries -->
+      </div>
+      <div class="playersAndBlockContainer">
+        <!-- player 1 container -->
+        <div id="playerOneContainer" class="playerOneContainer playerContainer">
+          <h1 id="playerOneTitleAndScore">player 1</h1>
+          <div>
+            <button
+              id="playerOneRollDiceButton"
+              class="playerOneRollDiceButton rollDiceButton"
+            >
+              roll a dice
+            </button>
+            <button id="playerOnePassBtn" class="playerOnePassBtn passBtn">
+              Pass
+            </button>
+          </div>
+          <div id="playerOneMessage" class="playerMessage"></div>
+          <img
+            id="playerOneDiceImg"
+            class="diceImg"
+            src="./images/dice1.png"
+            alt="dice 1 image"
+          />
+          <div id="playerOneNumberOfTries" class="tries">Tries</div>
+        </div>
+        <!-- blocks container -->
+        <div id="blocksContainer" class="blocksContainer"></div>
+        <!-- player 2 container -->
+        <div id="playerTwoContainer" class="playerTwoContainer playerContainer">
+          <h1 id="playerTwoTitleAndScore">player 2</h1>
+          <div>
+            <button
+              id="playerTwoRollDiceButton"
+              class="playerTwoRollDiceButton rollDiceButton"
+            >
+              roll a dice
+            </button>
+            <button id="playerTwoPassBtn" class="playerTwoPassBtn passBtn">
+              Pass
+            </button>
+          </div>
+          <div id="playerTwoMessage" class="playerMessage"></div>
+          <img
+            id="playerTwoDiceImg"
+            class="diceImg"
+            src="./images/dice1.png"
+            alt="dice 1 image"
+          />
+          <div id="playerTwoNumberOfTries" class="tries">Tries</div>
+        </div>
+      </div>
+    </div>
+    <script src="./game.js"></script>
+  </body>
+</html>
