@@ -758,20 +758,20 @@ function renderBlocks() {
     }
   }
   /************** adding blocks to the board **************/
-  let blockWidth = 50;
-  let blockHeight = 50;
+  let blockWidth = 45;
+  let blockHeight = 45;
   switch (numberOfRows) {
     case 4:
-      blockWidth = 105;
-      blockHeight = 105;
+      blockWidth = 90;
+      blockHeight = 90;
       break;
     case 6:
-      blockWidth = 70;
-      blockHeight = 70;
+      blockWidth = 60;
+      blockHeight = 60;
       break;
     case 8:
-      blockWidth = 50;
-      blockHeight = 50;
+      blockWidth = 45;
+      blockHeight = 45;
       break;
     default:
       break;
