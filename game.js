@@ -881,13 +881,13 @@ function generatSnakesBlocks() {
   let numberOfSnakesBlocks;
   switch (numberOfRows) {
     case 4:
-      numberOfSnakesBlocks = 1;
+      numberOfSnakesBlocks = 2;
       break;
     case 6:
-      numberOfSnakesBlocks = 3;
+      numberOfSnakesBlocks = 4;
       break;
     case 8:
-      numberOfSnakesBlocks = 4;
+      numberOfSnakesBlocks = 8;
       break;
     default:
       numberOfSnakesBlocks = 3;
