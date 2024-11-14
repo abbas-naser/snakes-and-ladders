@@ -901,7 +901,7 @@ function generatSnakesBlocks() {
     );
     // check if the generated number is not in the array already and it is not in the snake array
     if (
-      !snakesBlocksArray.includes(snakeNumb) &&
+     ( !snakesBlocksArray.includes(snakeNumb) && !snakesBlocksArray.includes(snakeNumb + 1) && !snakesBlocksArray.includes(snakeNumb - 1) ) &&
       !laddersBlocksArray.includes(snakeNumb)
     ) {
       snakesBlocksArray.push(snakeNumb);
