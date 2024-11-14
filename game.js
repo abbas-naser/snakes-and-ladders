@@ -881,10 +881,10 @@ function generatSnakesBlocks() {
   let numberOfSnakesBlocks;
   switch (numberOfRows) {
     case 4:
-      numberOfSnakesBlocks = 2;
+      numberOfSnakesBlocks = 3;
       break;
     case 6:
-      numberOfSnakesBlocks = 4;
+      numberOfSnakesBlocks = 5;
       break;
     case 8:
       numberOfSnakesBlocks = 8;
