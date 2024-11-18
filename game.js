@@ -596,12 +596,14 @@ function winHandler(winner) {
   } else {
     playerTwoMessageEl.innerText = "Winner";
   }
+  
 
   // give the blocks container opacity to make the user focun on the winner
   blocksContainer.style.opacity = "0.5";
 
   // check if a plyer win whole game by winning more than half the total number of rounds which is set to 3
   if (winner.score === scroeToWin) {
+    resetBtnEl.innerText = "Play Again";
     playSound("win.mp3");
     // playSound(finalWinSound);
     // // remove the continue playing button and the grid size options, and show only the reset button
@@ -650,6 +652,7 @@ function winHandler(winner) {
 // reset the game to initial state
 function resetGame() {
   playSound("mixkit-small-win-2020.mp3");
+  resetBtnEl.innerText = "Reset";
   // playSound(resetSound);
   currentRound = 0;
   laddersBlocksArray = [];
