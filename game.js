@@ -608,7 +608,7 @@ function winHandler(winner) {
     // playSound(finalWinSound);
     // // remove the continue playing button and the grid size options, and show only the reset button
     // announce the winner using the output message
-    outputMessageEl.innerText = `${winner.playerName} wins the game. reset the game to play again`;
+    outputMessageEl.innerText = `${winner.playerName} wins the game, try your luck again!`;
 
     // give the looser container opacity to emphasise the winner
     if (winner.id === playerOne.id) {
