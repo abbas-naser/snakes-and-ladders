@@ -634,8 +634,8 @@ function winHandler(winner) {
     // if player win from the first try then remove the ploral "tries" and add "try"
     outputMessageEl.innerText =
       winner.tries === 1
-        ? `${winner.playerName} is the winner of round "${currentRound}" after "${winner.tries}" try. you can change the grid size and continue`
-        : `${winner.playerName} is the winner of round "${currentRound}" after "${winner.tries}" tries. you can change the grid size and continue`;
+        ? `${winner.playerName} is the winner of round "${currentRound}" after "${winner.tries}" try, you can change the grid size - if you think it might help - and continue`
+        : `${winner.playerName} is the winner of round "${currentRound}" after "${winner.tries}" tries. you can change the grid size - if you think it might help - and continue`;
     // show play again option, to keep scores of winning
     // enable start/playagain btn
     continueBtnEl.style.display = "inline-block";
@@ -652,7 +652,7 @@ function winHandler(winner) {
 // reset the game to initial state
 function resetGame() {
   playSound("mixkit-small-win-2020.mp3");
-  resetBtnEl.innerText = "Reset";
+  resetBtnEl.innerText = "Run Away!";
   // playSound(resetSound);
   currentRound = 0;
   laddersBlocksArray = [];
@@ -726,7 +726,7 @@ function resetGame() {
   };
   blocksElementsString = "";
   outputMessageEl.innerText =
-    "Choose a grid size and play, player to start will be chosen randomly";
+    "Choose a grid size and your opponent, player to start will be chosen randomly";
   renderBlocks(); // render the game again after reinitializing data
 }
 
