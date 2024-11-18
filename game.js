@@ -1018,10 +1018,11 @@ function choosePlayerToStart() {
 }
 // handles switching to next player
 async function playerSwitchingHandler() {
+  let roundText = currentRound === totalNumberOfRounds ? "final round" : `round ${currentRound}`;
   // if player got 6, don't switch player
   if (currentPlayer.currentDiceNumber === 6) {
     // show output message to show who player turn is
-    outputMessageEl.innerText = `${currentPlayer.playerName} turn`;
+    outputMessageEl.innerText = `${roundText}: ${currentPlayer.playerName} turn`;
     return;
   }
   if (currentPlayer.id === playerOne.id) {
@@ -1029,7 +1030,7 @@ async function playerSwitchingHandler() {
     // disable player 1
     disablePlayerOneBtns();
     // update output message
-    outputMessageEl.innerText = `${playerTwo.playerName} turn`;
+    outputMessageEl.innerText = `${roundText}: ${playerTwo.playerName} turn`;
     // enable player 2
     enablePlayerTwoBtns();
     // animatePlayerContainer(playerTwoContainer);
@@ -1041,7 +1042,7 @@ async function playerSwitchingHandler() {
       await wait(300);
     }
     // update output message
-    outputMessageEl.innerText = `${playerOne.playerName} turn`;
+    outputMessageEl.innerText = `${roundText}: ${playerOne.playerName} turn`;
     // enable player 1
     enablePlayerOneBtns();
     // animatePlayerContainer(playerOneContainer);
